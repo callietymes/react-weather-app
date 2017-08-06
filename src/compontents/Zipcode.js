@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import api from '../config/api';
 
 class Zipcode extends Component {
     constructor(props) {
@@ -12,7 +13,7 @@ class Zipcode extends Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        console.log(this.state.cityState);
+        api.getTodaysWeather(this.state.cityState);
     }
 
     handleChange(event) {
