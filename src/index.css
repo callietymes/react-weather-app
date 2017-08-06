@@ -53,7 +53,7 @@ body {
 }
 
 .home-container {
-  background: url('./images/pattern.svg');
+  background: url('pattern.svg');
 }
 
 .button {
@@ -84,4 +84,41 @@ body {
 }
 .navbar .zipcode-container .button{
   margin: 10px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.forecast-header {
+  font-size: 65px;
+  color: #333;
+  font-weight: 100;
+  text-align: center;
+}
+
+.forecast-container {
+  flex-direction: row;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 50px auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.dayContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 35px;
+}
+.weather {
+  height: 130px;
+}
+
+.date {
+  font-size: 30px;
+  color: #333;
+  font-weight: 100;
 }

@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import api from '../config/api';
 const Link = require('react-router-dom').Link;
 
 class Zipcode extends Component {
@@ -8,13 +7,7 @@ class Zipcode extends Component {
         this.state = {
             cityState: ''
         };
-        this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
-    }
-
-    handleSubmit(event) {
-        event.preventDefault();
-        api.getTodaysWeather(this.state.cityState);
     }
 
     handleChange(event) {
@@ -44,7 +37,7 @@ class Zipcode extends Component {
                         pathname: '/forecast',
                         search: '?city=' + encodeURI(this.state.cityState)
                     }}>
-                    Battle
+                    Get Weather
                 </Link>
             </div>
         )

@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import Main from './Main'
-// import ReactRouter from 'react-router-dom'
 import Header from './Header';
 import Forecast from './Forecast';
 const ReactRouter = require('react-router-dom');
