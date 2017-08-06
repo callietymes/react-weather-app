@@ -69,3 +69,19 @@ body {
   border: 1px solid #4cae4c;
   cursor: pointer;
 }
+
+.navbar {
+  background: rgba(252,90,44,.89);
+  color: #fff;
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar .zipcode-container {
+  flex-direction: row;
+}
+.navbar .zipcode-container .button{
+  margin: 10px;
+}
