@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import api from '../config/api';
+const Link = require('react-router-dom').Link;
 
 class Zipcode extends Component {
     constructor(props) {
@@ -37,12 +38,14 @@ class Zipcode extends Component {
                     value={this.state.cityState}
                     onChange={this.handleChange}
                 />
-                <button
-                    className="button"
-                    onClick={this.handleSubmit}
-                    type="submit">
-                    Get Weather
-                </button>
+                <Link
+                    className='button'
+                    to={{
+                        pathname: '/forecast',
+                        search: '?city=' + encodeURI(this.state.cityState)
+                    }}>
+                    Battle
+                </Link>
             </div>
         )
     }

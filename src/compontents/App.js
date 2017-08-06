@@ -1,16 +1,27 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import Main from './Main'
+// import ReactRouter from 'react-router-dom'
 import Header from './Header';
+import Forecast from './Forecast';
+const ReactRouter = require('react-router-dom');
+const Router = ReactRouter.BrowserRouter;
+const Route = ReactRouter.Route;
+const Switch = ReactRouter.Switch;
 
 class App extends Component {
-  render() {
-    return (
-      <div className="app">
-          <Header/>
-          <Main />
-      </div>
-    );
-  }
+    render() {
+        return (
+            <Router history={''}>
+                <div className="app">
+                    <Header/>
+                    <Switch>
+                        <Route exact path='/' component={Main}/>
+                        <Route path='/forecast' component={Forecast}/>
+                    </Switch>
+                </div>
+            </Router>
+        );
+    }
 }
 
 export default App;
