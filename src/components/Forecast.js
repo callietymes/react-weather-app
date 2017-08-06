@@ -1,25 +1,7 @@
 import React, {Component} from 'react';
 import api from '../utils/api';
-import PropTypes from 'prop-types';
 import queryString from 'query-string';
-const getDate = require('../utils/dateHelper').getDate;
-
-function DayItem(props) {
-    const date = getDate(props.day.dt);
-    const icon = props.day.weather[0].icon;
-
-    return (
-        <div className="dayContainer">
-            <img className='weather' src={process.env.PUBLIC_URL + '/images/weather-icons/' + icon + '.svg'}
-                 alt='Weather'/>
-            <div className="date">{date}</div>
-        </div>
-    )
-}
-
-DayItem.propTypes = {
-    day: PropTypes.object.isRequired
-};
+import DayItem from './DayItem';
 
 class Forecast extends Component {
     constructor(props) {
@@ -29,6 +11,7 @@ class Forecast extends Component {
             forecast: null,
         };
         this.updateForecast = this.updateForecast.bind(this);
+        this.handleClick = this.handleClick.bind(this);
     }
 
     componentDidMount() {
@@ -54,6 +37,14 @@ class Forecast extends Component {
             });
     }
 
+    handleClick(city) {
+        city.city = this.city;
+        this.props.history.push({
+            pathname: '/details/' + this.city,
+            state: city,
+        })
+    }
+
     render() {
         return (
             <div>
@@ -63,7 +54,7 @@ class Forecast extends Component {
                         <h1 className='forecast-header'>{this.city}</h1>
                         <div className='forecast-container'>
                             {this.state.forecast.map(function (dayData) {
-                                return <DayItem key={dayData.dt} day={dayData}/>
+                                return <DayItem key={dayData.dt} day={dayData}  onClick={this.handleClick.bind(this, dayData)}/>
                             }, this)}
                         </div>
                     </div>}
